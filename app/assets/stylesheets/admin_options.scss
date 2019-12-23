@@ -1,0 +1,19 @@
+@import 'base';
+
+.admin-options-box {
+    z-index: 2;
+    position: fixed;
+
+    top: 0px;
+    right: 0px;
+    height: 20vh;
+    width: 20vw;
+
+    margin: 1em;
+    border: 1px solid white;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(182, 185, 186, 0.399);
+}
