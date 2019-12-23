@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../actions/session_actions";
+import { addPhoto } from '../actions/photo_actions';
+import ImageUpload from './image_upload';
 
 class AdminOptions extends React.Component {
   constructor(props) {
@@ -29,6 +31,7 @@ class AdminOptions extends React.Component {
 
     return (
       <div className="column hidden" id="admin-options-box">
+        <ImageUpload addPhoto={this.props.addPhoto} />
         <button className="logout-button" onClick={this.handleLogout}>
           Logout
         </button>
@@ -44,7 +47,8 @@ const msp = state => {
 };
 
 const mdp = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  addPhoto: (photo) => dispatch(addPhoto(photo))
 });
 
 export default connect(msp, mdp)(AdminOptions);

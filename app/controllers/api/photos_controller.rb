@@ -7,4 +7,16 @@ class Api::PhotosController < ApplicationController
         end
         render :index
     end
+
+    def create
+        @photo = Photo.new(photo_params)
+        if @photo.save
+            render :index
+        end
+    end
+
+    private
+    def photo_params
+        params.require(:photo).permit(:name, :description, :image)
+    end
 end

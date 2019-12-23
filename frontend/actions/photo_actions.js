@@ -13,3 +13,10 @@ export const fetchPhotos = () => dispatch => {
     photos => dispatch(receivePhotos(photos))
   );
 };
+
+export const addPhoto = (photo) => dispatch => {
+  return PhotoAPIUtil.addPhoto(photo)
+  .then(
+    photos => dispatch(receivePhotos(photos))
+  );
+};

@@ -6,14 +6,38 @@
 
     top: 0px;
     right: 0px;
-    height: 20vh;
-    width: 20vw;
+    height: 40vh;
+    width: 40vw;
 
     margin: 1em;
     border: 1px solid white;
 
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
+    // background-color: rgba(182, 185, 186, 0.399);
+}
+
+.image-upload-box {
+    justify-content: center;
+    align-items: center;
     background-color: rgba(182, 185, 186, 0.399);
+    color: white;
+
+    border: 7px solid fuchsia;
+
+    form {
+        justify-content: center;
+        align-items: stretch;
+        height: inherit;
+        * {
+            box-sizing: border-box;
+            width: 100%;
+            height: inherit;
+            padding: .35em;
+
+            border: none;
+            box-shadow: none;
+        }
+    }
 }
