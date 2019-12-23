@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
             session[:session_token] = ENV['SESSION_TOKEN']
             render :show
         else
-            render json: ["That's not the right password. Your computer will self destruct in 3.. 2.."], status: 418
+            render json: ["Oops! Wrong username/ password combination."], status: 418
             ENV['SESSION_TOKEN'] = ""
             session[:session_token] = ""
         end

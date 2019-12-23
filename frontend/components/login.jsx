@@ -1,4 +1,5 @@
 import React from "react";
+import { login, clearErrors } from '../actions/session_actions';
 import { connect } from "react-redux";
 
 class Login extends React.Component {
@@ -14,7 +15,7 @@ class Login extends React.Component {
     this.props
       .login(this.state)
       .then(() => this.props.history.push("/"))
-      .fail((e) => e.preventDefault())
+      .fail(console.log("this is an invalid username/password"))
   }
 
   update(field) {
@@ -24,6 +25,7 @@ class Login extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="login-box">
         <form className="column" onSubmit={(e) => this.handleSubmit(e)}>
@@ -52,11 +54,13 @@ class Login extends React.Component {
 }
 
 const msp = state => ({
+    errors: state.errors.session
 
 });
 
 const mdp = dispatch => ({
-    login: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(msp, mdp)(Login);
