@@ -16,7 +16,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-  // fetchPhotos: () => dispatch(fetchPhotos())
+    login: (user) => dispatch(login(user))
 });
 
 export default connect(msp, mdp)(Login);
