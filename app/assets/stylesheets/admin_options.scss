@@ -6,38 +6,89 @@
 
     top: 0px;
     right: 0px;
-    height: 40vh;
-    width: 40vw;
+    height: fit-content;
+    width: fit-content;
 
+    box-sizing: border-box;
     margin: 1em;
-    border: 1px solid white;
+    padding: .85em;
 
     align-items: flex-end;
     justify-content: center;
 
-    // background-color: rgba(182, 185, 186, 0.399);
+    .logout-button {
+        font-size: 25px;
+        background-color: black;
+        color: white;
+    }
 }
 
 .image-upload-box {
     justify-content: center;
     align-items: center;
-    background-color: rgba(182, 185, 186, 0.399);
-    color: white;
-
-    border: 7px solid fuchsia;
+    
+    box-sizing: border-box;
+    border: 4px double black;
+    border-radius: 3px;
+    
+    background-color: white;
 
     form {
-        justify-content: center;
-        align-items: stretch;
         height: inherit;
+
+        box-sizing: border-box;
+        padding: .2em;
+
+        justify-content: center;
+        align-items: center;
+
         * {
-            box-sizing: border-box;
-            width: 100%;
+            width: 80%;
             height: inherit;
-            padding: .35em;
+
+            padding: .2em;
+            margin: .2em;
+            box-sizing: border-box;
+
+            border: 1px solid black;
+            border-radius: 3px;
+            box-shadow: none;
+
+        }
+
+        h3 {
+            width: 98%;
 
             border: none;
-            box-shadow: none;
+            border-radius: 0px;
+            border-bottom: 1px solid black;
+
+            background-color: transparent;
+            text-align: center;
+            color: black;
+            font-size: 30px;
+        }
+
+        .input-field {
+            background-color: rgba(182, 185, 186, 0.299);
+            color: black;
+        }
+
+        .add-file {
+            background-color: rgba(182, 185, 186, 0.299);
+            font-size: 20px;
+            color: black;
+        }
+
+        .submit-file {
+            width: 60%;
+
+            border-radius: 3px;
+
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-size: 20px;
         }
     }
 }

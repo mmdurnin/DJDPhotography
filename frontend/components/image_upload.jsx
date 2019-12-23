@@ -45,10 +45,11 @@ class ImageUpload extends React.Component {
         return (
             <div className="image-upload-box">
                 <form onSubmit={this.handleSubmit} className="column">
-                    <input type="text" placeholder="Name" value={this.state.name} onChange={this.update("name")}/>
-                    <textarea placeholder="Description" value={this.state.description} onChange={this.update("description")}/>
-                    <input type="file" onChange={this.handleFile}/>
-                    <input type="submit" value="Add Image"/>
+                    <h3>Add Image:</h3>
+                    <input className="input-field" type="text" placeholder="Name" value={this.state.name} onChange={this.update("name")}/>
+                    <textarea className="input-field" placeholder="Description" value={this.state.description} onChange={this.update("description")}/>
+                    <input className="add-file" type="file" onChange={this.handleFile}/>
+                    <input className="submit-file" type="submit" value="Submit"/>
                 </form>
             </div>
         )
