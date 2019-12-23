@@ -28,11 +28,20 @@
         // border: none;
         // background: #fff;
         // object-fit: cover;
+        &:hover {
+            transform: scale(1.3);
+        }
     }
 }
 
 @media screen and (max-width: 1000px) {
     .image-index {
         column-count: 3;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image-index {
+        column-count: 2;
     }
 }
