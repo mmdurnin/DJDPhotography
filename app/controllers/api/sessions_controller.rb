@@ -12,7 +12,6 @@ class Api::SessionsController < ApplicationController
     end 
 
     def destroy
-        ENV['SESSION_TOKEN'] = ""
-        session[:session_token] = ""
+        logout
     end
 end
