@@ -4,8 +4,9 @@ class Api::SessionsController < ApplicationController
         if (params[:username] == ENV['USERNAME'] && params[:password] == ENV['PASSWORD'])
             ENV['SESSION_TOKEN'] = SecureRandom::urlsafe_base64
             session[:session_token] = ENV['SESSION_TOKEN']
+            render :show
         else
-            render json: ["That's not the right password. Your computer will self destruct in 3.. 2.."]
+            render json: ["That's not the right password. Your computer will self destruct in 3.. 2.."], status: 418
             ENV['SESSION_TOKEN'] = ""
             session[:session_token] = ""
         end
