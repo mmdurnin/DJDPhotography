@@ -1,1 +1,32 @@
 @import 'base';
+
+.image-index {
+    box-sizing: border-box;
+    padding: .85em;
+    width: 100%;
+    margin: 1.5em auto;
+
+    column-count: 4;
+    // max-width: 1000px;
+    column-gap: 1em;
+}
+
+.img-index-item {
+
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 1em;
+
+    img {
+        // position: absolute;
+        // display: inline-block;
+        // height: inherit;
+        // width: inherit;
+        // text-align: center;
+        // padding: 0px;
+        // border: none;
+        // background: #fff;
+        // object-fit: cover;
+    }
+}
