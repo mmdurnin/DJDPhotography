@@ -4,15 +4,52 @@ import { connect } from "react-redux";
 class Login extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {username: "", password: ""}
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    this.props.login(this.state)
+  }
+
+  update(field) {
+      return e => {
+          this.setState({ [field]: e.currentTarget.value})
+      }
   }
 
   render() {
-    return <div>Login page</div>;
+    return (
+      <div className="login-box">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className="login-input"
+            type="text"
+            onChange={this.update("username")}
+            placeholder="Username"
+            value={this.state.username}
+          />
+
+          <input
+            className="login-input"
+            type="password"
+            onChange={this.update("password")}
+            placeholder="Password"
+            value={this.state.password}
+          />
+
+          <input type="submit" className="login-submit" value="Submit" />
+
+        </form>
+      </div>
+    );
   }
 }
 
 const msp = state => ({
-  // photos: state.photos
+
 });
 
 const mdp = dispatch => ({
