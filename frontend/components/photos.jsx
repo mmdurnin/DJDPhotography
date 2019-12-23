@@ -7,23 +7,6 @@ class Photos extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            images: []
-        }
-    }
-    
-    loadFunc() {
-        const imageIndex = document.getElementById("image-index")
-        let item;
-        let img;
-        for (let i = 0; i < 12; i++) {
-            item = document.createElement("div")
-            item.classList.add("img-index-item")
-            img = document.createElement("IMG")
-            img.setAttribute("src", `${window.imgArray[i]}`);
-            item.appendChild(img)
-            imageIndex.appendChild(item)            
-        }
     }
 
     render() {
@@ -38,7 +21,12 @@ class Photos extends React.Component {
         }
 
         for (let i = 0; i < 12; i++) {
-            images.push(<img src={window.imgArray[i]}></img>);
+            
+            images.push(
+              <div className="img-index-item">
+                <img src={window.imgArray[i]}></img>
+              </div>
+            );
         }
 
 
@@ -47,18 +35,6 @@ class Photos extends React.Component {
             <div className="image-index" id="image-index">
               {images}
             </div>
-            <InfiniteScroll
-            pageStart={0}
-            loadMore={this.loadFunc}
-            hasMore={true || false}
-            loader={
-                <div className="loader" key={0}>
-                Loading ...
-                </div>
-            }
-            >
-            {images}
-            </InfiniteScroll>
           </div>
         );
     }
