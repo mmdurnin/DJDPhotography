@@ -1,5 +1,6 @@
 import React from "react";
-import { login, clearErrors } from '../actions/session_actions';
+import { login, clearErrors } from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 
 class Login extends React.Component {
@@ -11,11 +12,15 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+      this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     this.props
       .login(this.state)
       .then(() => this.props.history.push("/"))
-      .fail(console.log("this is an invalid username/password"))
+      .fail(() => this.render())
   }
 
   update(field) {
@@ -46,6 +51,8 @@ class Login extends React.Component {
           />
 
           <input type="submit" className="login-submit" value="Submit" />
+          
+          <h4>{this.props.errors}</h4>
 
         </form>
       </div>
@@ -55,7 +62,6 @@ class Login extends React.Component {
 
 const msp = state => ({
     errors: state.errors.session
-
 });
 
 const mdp = dispatch => ({
@@ -63,4 +69,4 @@ const mdp = dispatch => ({
     clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(msp, mdp)(Login);
+export default withRouter(connect(msp, mdp)(Login));

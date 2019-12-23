@@ -18,6 +18,12 @@ p {
     font-family: $thin;
 }
 
+button {
+    padding: .35em;
+    margin: .35em;
+    border-radius: 3px;
+}
+
 
 .column {
     display: flex;

@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
 
     def create
-        if (params[:username] == ENV['USERNAME'] && params[:password] == ENV['PASSWORD'])
+        if (params[:user][:username] == ENV['USERNAME'] && params[:user][:password] == ENV['PASSWORD'])
             ENV['SESSION_TOKEN'] = SecureRandom::urlsafe_base64
             session[:session_token] = ENV['SESSION_TOKEN']
             render :show

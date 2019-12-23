@@ -2,14 +2,11 @@
 
 .login-box {
     position: absolute;
-    height: 50vh;
+    height: 70vh;
     width: 50vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    border: 4px solid white;
-    background-color: rgba(213, 216, 216, 0.194);
 
     form {
         height: 100%;
@@ -29,8 +26,8 @@
         }
 
         .login-input {
-            background-color: black;
             border: 1px solid rgba(114, 114, 114, 0.68);
+            background-color: rgba(213, 216, 216, 0.194);
         }
 
         .login-submit {
@@ -38,6 +35,10 @@
             box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
             font-weight: 900;
             color: black;
+        }
+
+        h4 {
+            color: white;
         }
     }
 }
