@@ -10,8 +10,11 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-    this.props.login(this.state)
+  handleSubmit(e) {
+    this.props
+      .login(this.state)
+      .then(() => this.props.history.push("/"))
+      .fail((e) => e.preventDefault())
   }
 
   update(field) {
@@ -23,7 +26,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login-box">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             className="login-input"
             type="text"
