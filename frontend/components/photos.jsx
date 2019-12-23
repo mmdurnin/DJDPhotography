@@ -16,29 +16,36 @@ class Photos extends React.Component {
     render() {
         if (this.props.photos === undefined) return null;
 
-        const images = [];
-        for (let i = 0; i < 11; i++) {
-            images.push(
-              <div className="img-index-item">
-                <img src={window.imgArray[i]}></img>
-              </div>
-            );
-        }
-
-        for (let i = 0; i < 12; i++) {
-            
-            images.push(
-              <div className="img-index-item">
-                <img src={window.imgArray[i]}></img>
-              </div>
-            );
-        }
+        console.log("this.props")
+        console.log(this.props)
 
 
         return (
           <div>
             <div className="image-index" id="image-index">
-              {images}
+              {this.props.photos.map((item, idx) => {
+                return (
+                  <div className="img-index-item" key={idx}>
+                    <img src={item.photo} key={idx} />
+                  </div>
+                );
+              })}
+
+              {this.props.photos.map((item, idx) => {
+                return (
+                  <div className="img-index-item" key={idx + 20}>
+                    <img src={item.photo} key={idx + 20} />
+                  </div>
+                );
+              })}
+
+              {this.props.photos.map((item, idx) => {
+                return (
+                  <div className="img-index-item" key={idx + 40}>
+                    <img src={item.photo} key={idx + 40} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         );
@@ -48,7 +55,7 @@ class Photos extends React.Component {
 const msp = (state) => {
     console.log(state)
     return {
-      photos: state.entities.photos
+      photos: Object.values(state.entities.photos)
     };
 }
 
