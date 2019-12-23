@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Photo.delete_all
+
 i = 1
 while i < 13
     temp = Photo.create(name: "sample_#{i}", description: "sample_#{i}")

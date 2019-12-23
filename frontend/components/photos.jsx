@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetchPhotos } from '../actions/photo_actions';
 import { connect } from 'react-redux';
 
 
@@ -8,7 +9,12 @@ class Photos extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.fetchPhotos();
+    }
+
     render() {
+        if (this.props.photos === undefined) return null;
 
         const images = [];
         for (let i = 0; i < 11; i++) {
@@ -41,14 +47,13 @@ class Photos extends React.Component {
 
 const msp = (state) => {
     console.log(state)
-    // photos: state.photos
     return {
-
-    }
+      photos: state.entities.photos
+    };
 }
 
 const mdp = dispatch => ({
-    // fetchPhotos: () => dispatch(fetchPhotos())
+    fetchPhotos: () => dispatch(fetchPhotos())
 })
 
 export default connect(msp, mdp)(Photos);
