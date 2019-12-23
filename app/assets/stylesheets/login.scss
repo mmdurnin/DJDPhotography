@@ -1,1 +1,43 @@
 @import 'base';
+
+.login-box {
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 4px solid white;
+    background-color: rgba(213, 216, 216, 0.194);
+
+    form {
+        height: 100%;
+        width: 100%;
+
+        align-items: center;
+        justify-content: center;
+
+        input {
+            box-sizing: border-box;
+            width: 40%;
+            margin: .85em;
+            padding: .85em;
+
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .login-input {
+            background-color: black;
+            border: 1px solid rgba(114, 114, 114, 0.68);
+        }
+
+        .login-submit {
+            background-color: white;
+            box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+            font-weight: 900;
+            color: black;
+        }
+    }
+}

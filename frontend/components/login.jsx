@@ -26,7 +26,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login-box">
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form className="column" onSubmit={(e) => this.handleSubmit(e)}>
           <input
             className="login-input"
             type="text"
