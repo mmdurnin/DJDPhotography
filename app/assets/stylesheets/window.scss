@@ -1,0 +1,19 @@
+@import 'base';
+
+body {
+    background-color: black;
+    color: white;
+    font-family: $fat;
+}
+
+h1, h2, h3 {
+    font-family: $fat;
+};
+
+h4, h5 {
+    font-family: $times;
+}
+
+p {
+    font-family: $thin;
+}
