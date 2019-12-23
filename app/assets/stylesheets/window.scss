@@ -38,3 +38,7 @@ button {
 .inactive {
     display: none;
 }
+
+.hidden {
+    z-index: -1;
+}

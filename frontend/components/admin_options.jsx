@@ -6,15 +6,14 @@ class AdminOptions extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loggedIn: this.props.loggedIn };
     this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
     const adminOptions = document.getElementById("admin-options-box");
-    console.log(adminOptions)
     if (this.props.loggedIn) {
-        adminOptions.classList.remove("inactive")
+        adminOptions.classList.remove("hidden")
+        adminOptions.classList.add("admin-options-box");
     } else {
       adminOptions.className = "admin-options-box column inactive";
     }
@@ -27,13 +26,9 @@ class AdminOptions extends React.Component {
   }
 
   render() {
-    console.log("this.props")
-    console.log(this.props);
-    console.log("this state")
-    console.log(this.state);
 
     return (
-      <div className="admin-options-box column inactive" id="admin-options-box">
+      <div className="column hidden" id="admin-options-box">
         <button className="logout-button" onClick={this.handleLogout}>
           Logout
         </button>

@@ -19,7 +19,10 @@ class Login extends React.Component {
   handleSubmit(e) {
     this.props
       .login(this.state)
-      .then(() => this.props.history.push("/"))
+      .then(() => {
+        const adminOptions = document.getElementById("admin-options-box");
+        adminOptions.className = "admin-options-box column"
+        this.props.history.push("/")})
       .fail(() => this.render())
   }
 
