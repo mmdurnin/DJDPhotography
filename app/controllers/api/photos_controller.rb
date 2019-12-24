@@ -18,6 +18,13 @@ class Api::PhotosController < ApplicationController
         end
     end
 
+    def destroy
+        @photo = Photo.find_by(id: params[:id])
+        @photo.destroy
+        @photos = Photo.all.with_attached_photo
+        render :index
+    end
+
     private
     def photo_params
         params.require(:photo).permit(:name, :description, :photo)
