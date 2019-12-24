@@ -36,7 +36,10 @@ class ImageUpload extends React.Component {
         const formData = new FormData();
         formData.append('photo[name]', this.state.name);
         formData.append('photo[description]', this.state.description);
-        formData.append('photo[image]', this.state.imageFile);
+        formData.append('photo[photo]', this.state.imageFile);
+        console.log("formData")
+        console.log(formData)
+        console.log(this.state)
         this.props.addPhoto(formData)
     }
 
