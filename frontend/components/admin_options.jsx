@@ -25,6 +25,12 @@ class AdminOptions extends React.Component {
     this.props.logout();
     const adminOptions = document.getElementById("admin-options-box");
     adminOptions.classList.add("inactive")
+
+    const deleteButtons = document.getElementsByClassName("delete-button")
+    Array.from(deleteButtons).forEach(button => {
+      console.log(!!button);
+      button.classList.add("inactive");
+    });
   }
 
   render() {

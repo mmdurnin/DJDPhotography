@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchPhotos } from '../actions/photo_actions';
+import { fetchPhotos, deletePhoto } from '../actions/photo_actions';
 import { connect } from 'react-redux';
 
 
@@ -22,10 +22,18 @@ class Photos extends React.Component {
 
         return (
           <div>
+
+            <div className="warning-modal">
+                <h1>Are you sure you want to delete this photo?</h1>
+                <button>Delete photo</button>
+                <button>I changed my mind.</button>
+            </div>
+
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {
                 return (
                   <div className="img-index-item" key={idx}>
+                    <button className="delete-button hidden">x</button>
                     <img src={item.photo} key={idx} />
                   </div>
                 );
@@ -55,12 +63,14 @@ class Photos extends React.Component {
 const msp = (state) => {
     console.log(state)
     return {
-      photos: Object.values(state.entities.photos)
+      photos: Object.values(state.entities.photos),
+      loggedIn: state.session.admin === "Dermot"
     };
 }
 
 const mdp = dispatch => ({
-    fetchPhotos: () => dispatch(fetchPhotos())
+    fetchPhotos: () => dispatch(fetchPhotos()),
+    deletePhoto: (photoId) => dispatch(deletePhoto(photoId))
 })
 
 export default connect(msp, mdp)(Photos);

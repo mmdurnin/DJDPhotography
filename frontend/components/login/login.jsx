@@ -22,6 +22,13 @@ class Login extends React.Component {
       .then(() => {
         const adminOptions = document.getElementById("admin-options-box");
         adminOptions.className = "admin-options-box column"
+
+        const deleteButtons = document.getElementsByClassName("delete-button");
+        Array.from(deleteButtons).forEach((button) => {
+          console.log(!!button)
+          button.className = "delete-button"
+        })
+        
         this.props.history.push("/")})
       .fail(() => this.render())
   }
