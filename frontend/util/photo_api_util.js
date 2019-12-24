@@ -14,3 +14,10 @@ export const addPhoto = (photo) => {
     processData: false
   });
 };
+
+export const deletePhoto = photoId => {
+  return $.ajax({
+    url: `/api/photos/${photoId}`,
+    method: "DELETE"
+  });
+};

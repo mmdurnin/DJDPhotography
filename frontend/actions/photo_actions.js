@@ -20,3 +20,10 @@ export const addPhoto = (photo) => dispatch => {
     photos => dispatch(receivePhotos(photos))
   );
 };
+
+export const deletePhoto = (photoId) => dispatch => {
+  return PhotoAPIUtil.deletePhoto(photoId)
+    .then(
+      photos => dispatch(receivePhotos(photos))
+    )
+}

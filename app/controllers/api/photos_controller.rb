@@ -10,8 +10,6 @@ class Api::PhotosController < ApplicationController
 
     def create
         @photo = Photo.new(photo_params)
-        # @photo.name = photo_params[:name]
-        # @photo.description = photo_params[:description]
         if @photo.save
             @photos = Photo.all.with_attached_photo
             render :index
