@@ -9,7 +9,9 @@ class Api::PhotosController < ApplicationController
     end
 
     def create
-        @photo = Photo.new(photo_params)
+        @photo = Photo.new()
+        @photo.name = photo_params[:name]
+        @photo.description = photo_params[:description]
         if @photo.save
             render :index
         end
