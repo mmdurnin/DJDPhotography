@@ -19,17 +19,8 @@
     margin: 0 0 1em;
 
     img {
-        // position: absolute;
-        // display: inline-block;
-        // height: inherit;
-        // width: inherit;
-        // text-align: center;
-        // padding: 0px;
-        // border: none;
-        // background: #fff;
-        // object-fit: cover;
         &:hover {
-            transform: scale(1.3);
+            transform: scale(1.2);
         }
     }
 }

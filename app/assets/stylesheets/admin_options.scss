@@ -80,6 +80,17 @@
             color: black;
         }
 
+        .image-preview {
+
+            border: none;
+
+            justify-content: center;
+            * {
+                max-height: 45vh;
+                object-fit: cover;
+            }
+        }
+
         .submit-file {
             width: 60%;
 

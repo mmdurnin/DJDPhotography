@@ -4,8 +4,7 @@ class ImageUpload extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.state = {name: "", description: "", imageUrl: ""}
-        this.state = {name: "", description: "", imageFile: null}
+        this.state = {name: "", description: "", imageFile: null, imageUrl: null}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
     }
@@ -17,17 +16,18 @@ class ImageUpload extends React.Component {
     }
 
     handleFile(e) {
-        // const reader = new FileReader();
-        // const file = e.currentTarget.files[0];
-        // reader.onloadend = () =>
-        //   this.setState({ imageUrl: reader.result, imageFile: file });
+        const file = e.currentTarget.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+              this.setState({ imageUrl: reader.result, imageFile: file });
 
-        // if (file) {
-        //   reader.readAsDataURL(file);
-        // } else {
-        //   this.setState({ imageUrl: "", imageFile: null });
-        // }
-        this.setState({ imageFile: e.currentTarget.files[0] });
+        }
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          this.setState({ imageUrl: "", imageFile: null });
+        }
     }
 
     handleSubmit(e) {
@@ -41,10 +41,13 @@ class ImageUpload extends React.Component {
         console.log(formData)
         console.log(this.state)
         this.props.addPhoto(formData)
+        this.setState({name: "", description: "", imageFile: null, imageUrl: null})
     }
 
     render() {
-
+        console.log("this state")
+        console.log(this.state)
+        const preview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
         return (
             <div className="image-upload-box">
                 <form onSubmit={this.handleSubmit} className="column">
@@ -52,6 +55,7 @@ class ImageUpload extends React.Component {
                     <input className="input-field" type="text" placeholder="Name" value={this.state.name} onChange={this.update("name")}/>
                     <textarea className="input-field" placeholder="Description" value={this.state.description} onChange={this.update("description")}/>
                     <input className="add-file" type="file" onChange={this.handleFile}/>
+                    <div className="image-preview row">{preview}</div>
                     <input className="submit-file" type="submit" value="Submit"/>
                 </form>
             </div>
