@@ -11,8 +11,10 @@ Photo.delete_all
 i = 1
 while i < 13
     temp = Photo.create(name: "sample_#{i}", description: "sample_#{i}")
-    file = open("app/assets/images/sample_#{i}.jpg")
+    file = open("./app/assets/images/sample_#{i}.jpg")
 
+    p file 
+    
     temp.photo.attach(io: file, filename: "sample_#{i}.jpg")
 
     p temp.photo.attached?
