@@ -50,21 +50,6 @@ class Photos extends React.Component {
                 );
               })}
 
-              {this.props.photos.map((item, idx) => {
-                return (
-                  <div className="img-index-item" key={idx + 20}>
-                    <img src={item.photo} key={idx + 20} />
-                  </div>
-                );
-              })}
-
-              {this.props.photos.map((item, idx) => {
-                return (
-                  <div className="img-index-item" key={idx + 40}>
-                    <img src={item.photo} key={idx + 40} />
-                  </div>
-                );
-              })}
             </div>
           </div>
         );
