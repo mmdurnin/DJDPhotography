@@ -1,5 +1,6 @@
 import React from 'react';
-import { fetchPhotos, deletePhoto } from '../actions/photo_actions';
+import { fetchPhotos } from '../actions/photo_actions';
+import DeletePhotoModal from './modals/delete-photo'
 import { connect } from 'react-redux';
 
 
@@ -7,10 +8,18 @@ class Photos extends React.Component {
     constructor(props) {
         super(props)
 
+        this.handleModal = this.handleModal.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchPhotos();
+    }
+
+    handleModal() {
+        const deleteImgModal = document.getElementById("delete-img-modal")
+        console.log(!!deleteImgModal)
+        // deleteImgModal.className = "modal"
+        // deleteImgModal.setAttribute("target", `${e.target.key}`)
     }
 
     render() {
@@ -22,18 +31,19 @@ class Photos extends React.Component {
 
         return (
           <div>
-
-            <div className="warning-modal">
-                <h1>Are you sure you want to delete this photo?</h1>
-                <button>Delete photo</button>
-                <button>I changed my mind.</button>
-            </div>
+            <DeletePhotoModal />
 
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {
                 return (
                   <div className="img-index-item" key={idx}>
-                    <button className="delete-button hidden">x</button>
+                    <button
+                      className="delete-button hidden"
+                      key={item.id}
+                      onClick={this.handleModal}
+                    >
+                      x
+                    </button>
                     <img src={item.photo} key={idx} />
                   </div>
                 );
@@ -69,8 +79,7 @@ const msp = (state) => {
 }
 
 const mdp = dispatch => ({
-    fetchPhotos: () => dispatch(fetchPhotos()),
-    deletePhoto: (photoId) => dispatch(deletePhoto(photoId))
+    fetchPhotos: () => dispatch(fetchPhotos())
 })
 
 export default connect(msp, mdp)(Photos);
