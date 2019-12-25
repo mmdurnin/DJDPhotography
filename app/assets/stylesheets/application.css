@@ -15,6 +15,7 @@
  *= login
  *= photos
  *= admin_options
+ *= delete_photo_modal
  *= require_tree .
  *= require_self
  */

@@ -8,6 +8,7 @@ class Photos extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = { id: "" };
         this.handleModal = this.handleModal.bind(this);
     }
 
@@ -15,11 +16,12 @@ class Photos extends React.Component {
         this.props.fetchPhotos();
     }
 
-    handleModal() {
+    handleModal(id) {
         const deleteImgModal = document.getElementById("delete-img-modal")
         console.log(!!deleteImgModal)
-        // deleteImgModal.className = "modal"
-        // deleteImgModal.setAttribute("target", `${e.target.key}`)
+        deleteImgModal.className = "modal"
+        this.setState({id: id})
+        deleteImgModal.setAttribute("targetId", `${id }`)
     }
 
     render() {
@@ -31,7 +33,7 @@ class Photos extends React.Component {
 
         return (
           <div>
-            <DeletePhotoModal />
+            <DeletePhotoModal targetId={this.state.id} />
 
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {
@@ -39,8 +41,7 @@ class Photos extends React.Component {
                   <div className="img-index-item" key={idx}>
                     <button
                       className="delete-button hidden"
-                      key={item.id}
-                      onClick={this.handleModal}
+                      onClick={() => this.handleModal(item.id)}
                     >
                       x
                     </button>
