@@ -10,10 +10,11 @@
     height: fit-content;
     width: fit-content;
 
-    border: 5px solid white;
+    padding: .15em .35em;
+    border: 3px solid white;
     border-radius: 10px;
 
-    background-color: rgba(255, 255, 255, 0.393);
+    background-color: rgba(0, 0, 0, 0.666);
 
     font-size: 2rem;
     font-weight: 900;
@@ -68,11 +69,11 @@
         img {
             height: inherit;
             width: auto;
+            max-width: 70vw;
         }
     }
 
     .photo-modal-right {
-        flex-basis: 1;
         padding-left: .85em;
         width: 20vw;
     }
@@ -80,18 +81,32 @@
 
 @media screen and (max-width: 1000px) {
     .image-modal {
-        max-width: 80vw;
-        height: 70vh !important;
+        width: 80vw;
+        height: 70vh;
 
         * {
-            width: 100% !important;
+            max-height: 100%;
+        }
+
+        .photo-modal-left {
+            width: 50vw;
+            height: auto;
+            position: relative;
+        }
+
+        .photo-modal-right {
+            display: none;
         }
 
         img {
-            height: 95% !important;
+            position: absolute;
+            height: inherit;
+            width: auto;
             top: 0;
             bottom: 0;
-            object-fit: cover;
+            left: 0%;
+            right: 50%;
+            object-fit: cover;  
         }
     }
 }
