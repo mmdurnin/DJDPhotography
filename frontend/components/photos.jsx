@@ -17,15 +17,19 @@ class Photos extends React.Component {
     }
 
     handleModal(id) {
-        const deleteImgModal = document.getElementById("delete-img-modal")
-        console.log(!!deleteImgModal)
-        deleteImgModal.className = "modal"
-        this.setState({id: id})
-        deleteImgModal.setAttribute("targetId", `${id }`)
+      if (!this.props.loggedIn) return
+
+      const deleteImgModal = document.getElementById("delete-img-modal")
+      console.log(!!deleteImgModal)
+      deleteImgModal.className = "modal"
+      this.setState({id: id})
+      deleteImgModal.setAttribute("targetId", `${id }`)
     }
 
     render() {
         if (this.props.photos === undefined) return null;
+        let deleteButtonClass = "delete-button"
+        if (!this.props.loggedIn) deleteButtonClass = "delete-button hidden"
 
         console.log("this.props")
         console.log(this.props)
@@ -40,7 +44,7 @@ class Photos extends React.Component {
                 return (
                   <div className="img-index-item" key={idx}>
                     <button
-                      className="delete-button hidden"
+                      className={deleteButtonClass}
                       onClick={() => this.handleModal(item.id)}
                     >
                       x
