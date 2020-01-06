@@ -31,6 +31,7 @@ class ImageDetailModal extends React.Component {
                         <img src={this.props.photoItem.photo} />
                     </div>
                     <div className="photo-modal-right">
+                        <h2>{this.props.photoItem.name}</h2>
                         <p>{this.props.photoItem.description}</p>
                     </div>
                 </div>
