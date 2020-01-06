@@ -28,7 +28,6 @@ class AdminOptions extends React.Component {
 
     const deleteButtons = document.getElementsByClassName("delete-button")
     Array.from(deleteButtons).forEach(button => {
-      console.log(!!button);
       button.classList.add("inactive");
     });
   }

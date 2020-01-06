@@ -14,7 +14,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="box">
           <h1>You're already logged in!</h1>

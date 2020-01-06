@@ -25,7 +25,6 @@ class Login extends React.Component {
 
         const deleteButtons = document.getElementsByClassName("delete-button");
         Array.from(deleteButtons).forEach((button) => {
-          console.log(!!button)
           button.className = "delete-button column"
         })
         
@@ -40,7 +39,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="login-box">
         <form className="column" onSubmit={(e) => this.handleSubmit(e)}>

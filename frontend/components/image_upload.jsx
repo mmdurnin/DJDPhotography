@@ -32,21 +32,15 @@ class ImageUpload extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // this.props.addPhoto(this.state);
         const formData = new FormData();
         formData.append('photo[name]', this.state.name);
         formData.append('photo[description]', this.state.description);
         formData.append('photo[photo]', this.state.imageFile);
-        console.log("formData")
-        console.log(formData)
-        console.log(this.state)
         this.props.addPhoto(formData)
         this.setState({name: "", description: "", imageFile: null, imageUrl: null})
     }
 
     render() {
-        console.log("this state")
-        console.log(this.state)
         const preview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
         return (
             <div className="image-upload-box">

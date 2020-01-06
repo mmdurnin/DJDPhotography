@@ -71,7 +71,6 @@ class Photos extends React.Component {
 }
 
 const msp = (state) => {
-    console.log(state)
     return {
       photos: Object.values(state.entities.photos),
       loggedIn: state.session.admin === "Dermot"

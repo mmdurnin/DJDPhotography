@@ -8,11 +8,6 @@ class ImageDetailModal extends React.Component {
         this.closeModal = this.closeModal.bind(this)
     }
 
-    componentDidUpdate() {
-        console.log("this.props")
-        console.log(this.props)
-    }
-
     closeModal(e) {
         const photoModal = document.getElementById("photo-modal");
         photoModal.className = "inactive";
