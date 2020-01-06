@@ -76,5 +76,22 @@
         padding-left: .85em;
         width: 20vw;
     }
+}
 
+@media screen and (max-width: 1000px) {
+    .image-modal {
+        max-width: 80vw;
+        height: 70vh !important;
+
+        * {
+            width: 100% !important;
+        }
+
+        img {
+            height: 95% !important;
+            top: 0;
+            bottom: 0;
+            object-fit: cover;
+        }
+    }
 }
