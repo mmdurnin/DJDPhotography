@@ -10,11 +10,6 @@ class DeletePhotoModal extends React.Component {
         this.deleteImage = this.deleteImage.bind(this)
     }
 
-    componentDidUpdate() {
-        console.log("this.props")
-        console.log(this.props)
-    }
-
     closeModal(e) {
         const deleteImgModal = document.getElementById("delete-img-modal");
         deleteImgModal.className = "inactive";

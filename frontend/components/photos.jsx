@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchPhotos } from '../actions/photo_actions';
-import DeletePhotoModal from './modals/delete-photo'
+import DeletePhotoModal from './modals/delete-photo';
+import ImageDetailModal from './modals/image-detail';
 import { connect } from 'react-redux';
 
 
@@ -8,8 +9,9 @@ class Photos extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { id: "" };
+        this.state = { id: "", imageOpen: false };
         this.handleModal = this.handleModal.bind(this);
+        this.enlargeImage = this.enlargeImage.bind(this);
     }
 
     componentDidMount() {
@@ -26,10 +28,20 @@ class Photos extends React.Component {
       deleteImgModal.setAttribute("targetId", `${id }`)
     }
 
+    enlargeImage(imageId) {
+      // const photoDetail = document.getElementById("photo-modal")
+      // photoDetail.className = "modal"
+      this.setState({id: imageId})
+      // photoDetail.setAttribute("targetId", `${imageId}`)
+    }
+
     render() {
         if (this.props.photos === undefined) return null;
+
         let deleteButtonClass = "delete-button"
         if (!this.props.loggedIn) deleteButtonClass = "delete-button hidden"
+
+        // const component = (!!this.state.imageOpen) ? <ImageDetailModal targetId={this.state.id} /> : <DeletePhotoModal targetId={this.state.id} />
 
         console.log("this.props")
         console.log(this.props)
@@ -38,6 +50,9 @@ class Photos extends React.Component {
         return (
           <div>
             <DeletePhotoModal targetId={this.state.id} />
+            <ImageDetailModal targetId={this.state.id} />
+
+            {/* {component} */}
 
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {
@@ -49,7 +64,7 @@ class Photos extends React.Component {
                     >
                       x
                     </button>
-                    <img src={item.photo} key={idx} />
+                    <img src={item.photo} key={idx} onClick={() => this.enlargeImage(item.id)} />
                   </div>
                 );
               })}
