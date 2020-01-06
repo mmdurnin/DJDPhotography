@@ -81,31 +81,46 @@
 
 @media screen and (max-width: 1000px) {
     .image-modal {
-        width: 80vw;
         height: 70vh;
+        max-width: 80vw;
+        min-width: 50vw;
+
+        .photo-modal-right {
+            display: none;
+        }
+
+        h1 {
+            display: none;
+        }
+
+        &:hover {
+            h1 {
+                display: none !important;
+
+            }
+        }
 
         * {
             max-height: 100%;
         }
 
         .photo-modal-left {
-            width: 50vw;
+            width: 100%;
             height: auto;
             position: relative;
-        }
-
-        .photo-modal-right {
-            display: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
         }
 
         img {
-            position: absolute;
+            // position: absolute;
             height: inherit;
             width: auto;
             top: 0;
             bottom: 0;
-            left: 0%;
-            right: 50%;
+            left: 0;
+            right: 0;
             object-fit: cover;  
         }
     }
