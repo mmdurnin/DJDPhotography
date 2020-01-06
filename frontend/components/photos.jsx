@@ -22,17 +22,13 @@ class Photos extends React.Component {
       if (!this.props.loggedIn) return
 
       const deleteImgModal = document.getElementById("delete-img-modal")
-      console.log(!!deleteImgModal)
       deleteImgModal.className = "modal"
       this.setState({id: id})
       deleteImgModal.setAttribute("targetId", `${id }`)
     }
 
     enlargeImage(imageId) {
-      // const photoDetail = document.getElementById("photo-modal")
-      // photoDetail.className = "modal"
       this.setState({id: imageId})
-      // photoDetail.setAttribute("targetId", `${imageId}`)
     }
 
     render() {
@@ -41,18 +37,11 @@ class Photos extends React.Component {
         let deleteButtonClass = "delete-button"
         if (!this.props.loggedIn) deleteButtonClass = "delete-button hidden"
 
-        // const component = (!!this.state.imageOpen) ? <ImageDetailModal targetId={this.state.id} /> : <DeletePhotoModal targetId={this.state.id} />
-
-        console.log("this.props")
-        console.log(this.props)
-
 
         return (
           <div>
             <DeletePhotoModal targetId={this.state.id} />
             <ImageDetailModal targetId={this.state.id} />
-
-            {/* {component} */}
 
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {

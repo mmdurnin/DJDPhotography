@@ -23,7 +23,7 @@ class DeletePhotoModal extends React.Component {
     render() {
         return (
           <div className="inactive" id="delete-img-modal">
-            <div className="warning-modal" id="warning-modal" >
+            <div className="inner-modal" id="inner-modal" >
               <h1>Are you sure you want to delete this photo?</h1>
               <button onClick={() => this.deleteImage()} >Delete photo</button>
               <button onClick={this.closeModal} >I changed my mind.</button>

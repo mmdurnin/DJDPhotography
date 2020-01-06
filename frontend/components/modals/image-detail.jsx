@@ -24,14 +24,14 @@ class ImageDetailModal extends React.Component {
 
         return (
             <div className="modal" id="photo-modal">
-                <div className="warning-modal" id="warning-modal" >
+                <button className="close-modal" onClick={this.closeModal}>X</button>
+                <div className="inner-modal image-modal row" id="inner-modal" >
                     <div className="photo-modal-left">
                         <h1>{this.props.photoItem.name}</h1>
                         <img src={this.props.photoItem.photo} />
                     </div>
                     <div className="photo-modal-right">
                         <p>{this.props.photoItem.description}</p>
-                        <button onClick={this.closeModal}>X</button>
                     </div>
                 </div>
             </div>
