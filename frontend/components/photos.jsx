@@ -29,6 +29,12 @@ class Photos extends React.Component {
 
     enlargeImage(imageId) {
       this.setState({id: imageId})
+
+      const photoModal = document.getElementById("photo-modal")
+      if (!!photoModal) {
+        photoModal.className = "modal"
+        photoModal.setAttribute("targetId", `${id}`)   
+      }   
     }
 
     render() {
