@@ -33,7 +33,7 @@ class Photos extends React.Component {
       const photoModal = document.getElementById("photo-modal")
       if (!!photoModal) {
         photoModal.className = "modal"
-        photoModal.setAttribute("targetId", `${id}`)   
+        // photoModal.setAttribute("targetId", `${id}`)   
       }   
     }
 
