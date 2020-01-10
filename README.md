@@ -4,7 +4,7 @@
 #### [Visit dermotjdurnin-photography](http://dermotjdurnin-photography.herokuapp.com/#/)
 
 
-<img src="https://github.com/mmdurnin/DJDPhotography/blob/master/app/assets/images/img_index.png" width="48%" align="left" >
+<img src="https://github.com/mmdurnin/DJDPhotography/blob/master/app/assets/images/img_index.png" width="48%" align="right" >
 <img src="https://github.com/mmdurnin/DJDPhotography/blob/master/app/assets/images/img_expand.png" width="48%" align="right" >
 
 ### Features
