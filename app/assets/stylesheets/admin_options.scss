@@ -1,8 +1,7 @@
 @import 'base';
 
 .admin-options-box {
-    z-index: 2;
-    position: fixed;
+    position: absolute;
 
     top: 0px;
     right: 0px;
@@ -17,6 +16,7 @@
     justify-content: center;
 
     .logout-button {
+        z-index: 2;
         font-size: 25px;
         background-color: black;
         color: white;
@@ -24,6 +24,7 @@
 }
 
 .image-upload-box {
+    z-index: 2;
     justify-content: center;
     align-items: center;
     
