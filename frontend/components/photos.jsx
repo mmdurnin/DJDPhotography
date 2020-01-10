@@ -43,8 +43,7 @@ class Photos extends React.Component {
     render() {
         if (this.props.photos === undefined) return null;
 
-        let deleteButtonClass = "delete-button"
-        if (!this.props.loggedIn) deleteButtonClass = "delete-button hidden"
+        const deleteButtonClass = (!this.props.loggedIn) ? "delete-button hidden" : "delete-button"
 
         const imgHoverClass = (this.props.loggedIn) ? "img-index-item" : "img-index-item hover-enlarge"
 

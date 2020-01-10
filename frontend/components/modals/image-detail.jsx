@@ -16,9 +16,10 @@ class ImageDetailModal extends React.Component {
     render() {
 
         if (this.props.photoItem === undefined) return null;
+        const modalClass = (this.props.loggedIn) ? "modal hidden" : "modal"
 
         return (
-            <div className="modal" id="photo-modal">
+            <div className={modalClass} id="photo-modal">
                 <button className="close-modal" onClick={this.closeModal}>X</button>
                 <div className="inner-modal image-modal row" id="inner-modal" >
                     <div className="photo-modal-left">
@@ -37,7 +38,8 @@ class ImageDetailModal extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-    photoItem: state.entities.photos[ownProps.targetId]
+    photoItem: state.entities.photos[ownProps.targetId],
+    loggedIn: state.session.admin === "Dermot"
 })
 
 const mdp = dispatch => ({
