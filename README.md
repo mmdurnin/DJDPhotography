@@ -8,6 +8,7 @@
 
 ### Features
 * Staggered effect with masonry grid
+* Private access for the photographer to easily upload and remove images
 * Responsive visual display across devices
 
 ### Technologies
