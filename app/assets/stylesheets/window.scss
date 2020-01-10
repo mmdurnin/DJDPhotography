@@ -57,3 +57,10 @@ button {
 
     background-color: rgba(54, 14, 133, 0.386);
 }
+
+.hover-enlarge {
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+    }
+}

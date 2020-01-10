@@ -21,6 +21,7 @@ class Photos extends React.Component {
     handleModal(id) {
       if (!this.props.loggedIn) return
 
+
       const deleteImgModal = document.getElementById("delete-img-modal")
       deleteImgModal.className = "modal"
       this.setState({id: id})
@@ -28,6 +29,8 @@ class Photos extends React.Component {
     }
 
     enlargeImage(imageId) {
+      if (!!this.props.loggedIn) return
+
       this.setState({id: imageId})
 
       const photoModal = document.getElementById("photo-modal")
@@ -43,6 +46,8 @@ class Photos extends React.Component {
         let deleteButtonClass = "delete-button"
         if (!this.props.loggedIn) deleteButtonClass = "delete-button hidden"
 
+        const imgHoverClass = (this.props.loggedIn) ? "img-index-item" : "img-index-item hover-enlarge"
+
 
         return (
           <div>
@@ -52,7 +57,7 @@ class Photos extends React.Component {
             <div className="image-index" id="image-index">
               {this.props.photos.map((item, idx) => {
                 return (
-                  <div className="img-index-item" key={idx}>
+                  <div className={imgHoverClass} key={idx}>
                     <button
                       className={deleteButtonClass}
                       onClick={() => this.handleModal(item.id)}
