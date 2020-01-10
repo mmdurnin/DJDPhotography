@@ -1,5 +1,6 @@
 # Dermot Durnin Photography
 ### A simple, easy to use, single page photography portfolio.
+* (I made this website for my dad for Christmas) *
 
 #### [Visit dermotjdurnin-photography](http://dermotjdurnin-photography.herokuapp.com/#/)
 
